@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="prepearingtoexam.Редактирование"
+        x:CompileBindings="False"
+        Title="Редактирование">
+  <Grid  RowDefinitions="*,*,*" ColumnDefinitions="Auto, Auto" Name= "ProductModel">
+      <TextBlock Grid.Column="0" Grid.Row="0" Text="Редактиирование товара " 
+                 HorizontalAlignment="Center" FontWeight="Black" FontSize="15"></TextBlock>
+      <StackPanel Grid.Row="1" Grid.Column="0" Margin="10" Orientation="Vertical">
+          <TextBox Margin="10" Text="{Binding Id}" Watermark="идентификатор товара" IsReadOnly="True" Background="Gray"></TextBox>
+          <TextBox Margin="10" Text="{Binding Title}" Watermark="название товара" ></TextBox>
+          <TextBox Margin="10" Text="{Binding Description}"  Watermark="описание товара" ></TextBox>
+          <TextBox Margin="10" Text="{Binding  Cost}"  Watermark=" соимость товара" ></TextBox>
+     </StackPanel>
+      <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+          
+          <Button Margin="5"  Click="OnOpenFolderButtonClick"  >
+              <Image Width="200" Height="200" Name="SelectedImage" Source="{Binding Image}" HorizontalAlignment="Center" >   </Image>
+          </Button>
+      </StackPanel>
+     
+          
+    
+      <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal" Margin="10">
+          <Button Click="Savebutton" Content="Сохранить" Margin="10 " HorizontalAlignment="Left"></Button>
+          <Button Click="Canselbutton" Content="Отменить" Margin="10 " HorizontalAlignment="Right"></Button>
+          
+      </StackPanel>
+  </Grid>
+    
+    
+</Window>

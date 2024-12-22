@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="prepearingtoexam.MainWindow"
+        x:CompileBindings="False"
+        Title="prepearingtoexam">
+   <Grid RowDefinitions="Auto, *, Auto" ColumnDefinitions="*, *">
+       <TextBox Grid.Column="0" Grid.Row="0" Watermark="поиск" Margin="10"
+                Name="Search_Textbox" TextChanged="Search_TextChanged"></TextBox>
+       <DockPanel Grid.Column="1" Grid.Row="0" >
+           <ComboBox SelectedIndex="0" Margin="10" Name="filter_combobox" SelectionChanged="filter_changed">
+               <ComboBoxItem Content="Все"></ComboBoxItem>
+               <ComboBoxItem Content="По возростанию"></ComboBoxItem>
+               <ComboBoxItem Content="По убыванию"></ComboBoxItem>
+           </ComboBox>
+           <ComboBox SelectedIndex="0" Margin="10" Name="choose_comboBox" SelectionChanged="choose_changed">
+               <ComboBoxItem Content="Все элементы"></ComboBoxItem>
+               <ComboBoxItem Content="Росатом"></ComboBoxItem>
+               <ComboBoxItem Content="Буквоед"></ComboBoxItem>
+               <ComboBoxItem Content="АТС"></ComboBoxItem>
+           </ComboBox>
+       </DockPanel>
+       <Border Margin="25" Grid.ColumnSpan="2" Grid.Row="1" BorderBrush="DarkSlateBlue"  BorderThickness="4" Background="CornflowerBlue">
+           <ListBox Name="Product_Listbox" PointerReleased="EditBut">
+               <ListBox.ItemsPanel>
+                   <ItemsPanelTemplate>
+                       <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                   </ItemsPanelTemplate>
+               </ListBox.ItemsPanel>
+               <ListBox.ItemTemplate>
+                   <DataTemplate>
+                       <StackPanel Width="300">
+                           <Border BorderThickness="3" Width="250" Height="200">
+                               <Border  Width="200" Height="200" BorderThickness="3" Background="Beige">
+                                   <Image Source="{Binding Image} " Width="150"></Image>
+                               </Border>
+                           </Border>
+                           <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Title}"></TextBlock>
+                           <TextBlock HorizontalAlignment="Center" Text="{Binding GetCOst}"></TextBlock>
+                           
+                       </StackPanel>
+                   </DataTemplate>
+               </ListBox.ItemTemplate>
+           </ListBox>
+       </Border>
+       <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+           <Button Content="Добавить" Click="AddButton"></Button>
+       </StackPanel>
+       
+   </Grid>
+</Window>
